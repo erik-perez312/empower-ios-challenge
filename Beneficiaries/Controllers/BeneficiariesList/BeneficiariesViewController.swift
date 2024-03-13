@@ -76,10 +76,6 @@ final class BeneficiariesViewController: UIViewController {
         setUpNoBeneficiariesLabel()
         setUpRetryView()
         setUpActivityIndicator()
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
         
         loadBeneficiaries()
     }
@@ -124,10 +120,10 @@ final class BeneficiariesViewController: UIViewController {
         view.addSubview(tableView)
         
         NSLayoutConstraint.activate([
-            tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            tableView.topAnchor.constraint(equalTo: view.topAnchor),
-            tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+            tableView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
+            tableView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
+            tableView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+            tableView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
         ])
     }
     
@@ -135,10 +131,10 @@ final class BeneficiariesViewController: UIViewController {
         view.addSubview(errorRetryView)
         
         NSLayoutConstraint.activate([
-            errorRetryView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            errorRetryView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            errorRetryView.topAnchor.constraint(equalTo: view.topAnchor),
-            errorRetryView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+            errorRetryView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
+            errorRetryView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
+            errorRetryView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+            errorRetryView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
         ])
     }
     
@@ -148,10 +144,12 @@ final class BeneficiariesViewController: UIViewController {
         let horizontalPadding: CGFloat = 15
         
         NSLayoutConstraint.activate([
-            noBeneficiariesLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant:  horizontalPadding),
-            noBeneficiariesLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -horizontalPadding),
-            noBeneficiariesLabel.topAnchor.constraint(equalTo: view.topAnchor),
-            noBeneficiariesLabel.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+            noBeneficiariesLabel.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, 
+                                                          constant:  horizontalPadding),
+            noBeneficiariesLabel.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, 
+                                                           constant: -horizontalPadding),
+            noBeneficiariesLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+            noBeneficiariesLabel.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
         ])
     }
     
@@ -196,5 +194,13 @@ extension BeneficiariesViewController: UITableViewDataSource {
 // MARK: - UITableViewDelegate
 
 extension BeneficiariesViewController: UITableViewDelegate {
-    // TODO: Implement
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        guard viewModel.beneficiaries.indices.contains(indexPath.row) else {
+            return
+        }
+        
+        let detailsViewModel = BeneficiaryDetailsViewModel(beneficiary: viewModel.beneficiaries[indexPath.row])
+        navigationController?.pushViewController(BeneficiaryDetailsViewController(viewModel: detailsViewModel), animated: true)
+    }
 }

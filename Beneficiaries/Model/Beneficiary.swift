@@ -17,6 +17,18 @@ struct Beneficiary {
     let middleName: String?
     let phoneNumber: String
     let ssn: String
+    
+    var fullName: String {
+        var result = "\(firstName)"
+        
+        if let middleName = middleName {
+            result += " \(middleName)"
+        }
+        
+        result += " \(lastName)"
+        
+        return result
+    }
 }
 
 // MARK: - Codable

@@ -40,7 +40,7 @@ final class BeneficiariesViewModel: BeneficiariesViewModelProtocol {
             throw BeneficiariesViewModelError.failedToLoadBeneficiaries
         }
         
-        self.beneficiaries = beneficiaries
+        self.beneficiaries = beneficiaries.sorted(by: { $0.firstName < $1.firstName })
     }
 }
 

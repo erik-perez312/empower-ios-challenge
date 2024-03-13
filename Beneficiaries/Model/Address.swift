@@ -14,9 +14,21 @@ struct Address {
     let secondLineMailing: String?
     let stateCode: String
     let zipCode: String
+    
+    var formatted: String {
+        var result = "\(firstLineMailing)"
+        
+        if let secondLineMailing = secondLineMailing {
+            result += "\n\(secondLineMailing)"
+        }
+        
+        result += "\n\(city), \(stateCode) \(zipCode)\n\(country)"
+        
+        return result
+    }
 }
 
-// Mark: - Codable
+// MARK: - Codable
 
 extension Address: Codable {
     

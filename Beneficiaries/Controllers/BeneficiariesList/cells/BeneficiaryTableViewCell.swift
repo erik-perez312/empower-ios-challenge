@@ -13,9 +13,6 @@ final class BeneficiaryTableViewCell: UITableViewCell {
     
     static let identifier = "BeneficiaryTableViewCell"
     
-    private lazy var beneficiaryTitleLabel = newTitleLabel(title: "Beneficiary Type:")
-    private lazy var designationTitleLabel = newTitleLabel(title: "Designation:")
-    
     private lazy var beneficiaryValueLabel = newValueLabel()
     private lazy var designationValueLabel = newValueLabel()
     
@@ -60,12 +57,12 @@ final class BeneficiaryTableViewCell: UITableViewCell {
     
     private func setUpContentView() {
         let beneficiaryTypeStackView = newInfoStackView(arrangedSubviews: [
-            beneficiaryTitleLabel,
+            newTitleLabel(title: "Beneficiary Type:"),
             beneficiaryValueLabel
         ])
         
         let designationStackView = newInfoStackView(arrangedSubviews: [
-            designationTitleLabel,
+            newTitleLabel(title: "Designation:"),
             designationValueLabel
         ])
         
