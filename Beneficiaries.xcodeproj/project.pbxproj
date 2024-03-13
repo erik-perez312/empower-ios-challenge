@@ -11,6 +11,7 @@
 		864E73322BA10CF000FEA05F /* BeneficiaryDecodingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 864E73312BA10CF000FEA05F /* BeneficiaryDecodingTests.swift */; };
 		864E73342BA1583F00FEA05F /* BeneficiariesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 864E73332BA1583F00FEA05F /* BeneficiariesViewModel.swift */; };
 		864E73372BA15FA800FEA05F /* BeneficiaryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 864E73362BA15FA800FEA05F /* BeneficiaryTableViewCell.swift */; };
+		864E733A2BA228BC00FEA05F /* ErrorRetryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 864E73392BA228BC00FEA05F /* ErrorRetryView.swift */; };
 		86B3A2942BA0FE400086C194 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86B3A2932BA0FE400086C194 /* AppDelegate.swift */; };
 		86B3A2962BA0FE400086C194 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86B3A2952BA0FE400086C194 /* SceneDelegate.swift */; };
 		86B3A2982BA0FE400086C194 /* BeneficiariesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86B3A2972BA0FE400086C194 /* BeneficiariesViewController.swift */; };
@@ -41,6 +42,7 @@
 		864E73312BA10CF000FEA05F /* BeneficiaryDecodingTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeneficiaryDecodingTests.swift; sourceTree = "<group>"; };
 		864E73332BA1583F00FEA05F /* BeneficiariesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeneficiariesViewModel.swift; sourceTree = "<group>"; };
 		864E73362BA15FA800FEA05F /* BeneficiaryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeneficiaryTableViewCell.swift; sourceTree = "<group>"; };
+		864E73392BA228BC00FEA05F /* ErrorRetryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorRetryView.swift; sourceTree = "<group>"; };
 		86B3A2902BA0FE400086C194 /* Beneficiaries.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Beneficiaries.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		86B3A2932BA0FE400086C194 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		86B3A2952BA0FE400086C194 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -92,6 +94,24 @@
 			path = cells;
 			sourceTree = "<group>";
 		};
+		864E73382BA228AB00FEA05F /* CommonViews */ = {
+			isa = PBXGroup;
+			children = (
+				864E73392BA228BC00FEA05F /* ErrorRetryView.swift */,
+			);
+			path = CommonViews;
+			sourceTree = "<group>";
+		};
+		864E733B2BA2383E00FEA05F /* BeneficiariesViewController */ = {
+			isa = PBXGroup;
+			children = (
+				86B3A2972BA0FE400086C194 /* BeneficiariesViewController.swift */,
+				864E73332BA1583F00FEA05F /* BeneficiariesViewModel.swift */,
+				864E73352BA15F8200FEA05F /* cells */,
+			);
+			path = BeneficiariesViewController;
+			sourceTree = "<group>";
+		};
 		86B3A2872BA0FE400086C194 = {
 			isa = PBXGroup;
 			children = (
@@ -115,6 +135,7 @@
 			children = (
 				86B3A2A92BA100CF0086C194 /* Controllers */,
 				86B3A2AE2BA104A10086C194 /* Model */,
+				864E73382BA228AB00FEA05F /* CommonViews */,
 				86B3A2B52BA1081A0086C194 /* Helpers */,
 				86B3A2A72BA100B50086C194 /* Resources */,
 				86B3A2A82BA100BD0086C194 /* SupportingFiles */,
@@ -145,9 +166,7 @@
 		86B3A2A92BA100CF0086C194 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				864E73352BA15F8200FEA05F /* cells */,
-				86B3A2972BA0FE400086C194 /* BeneficiariesViewController.swift */,
-				864E73332BA1583F00FEA05F /* BeneficiariesViewModel.swift */,
+				864E733B2BA2383E00FEA05F /* BeneficiariesViewController */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -292,6 +311,7 @@
 				864E73342BA1583F00FEA05F /* BeneficiariesViewModel.swift in Sources */,
 				86B3A2B22BA104C60086C194 /* BeneficiaryType.swift in Sources */,
 				86B3A2962BA0FE400086C194 /* SceneDelegate.swift in Sources */,
+				864E733A2BA228BC00FEA05F /* ErrorRetryView.swift in Sources */,
 				86B3A2B02BA104AF0086C194 /* Address.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
